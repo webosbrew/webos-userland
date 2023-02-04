@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=/usr
+datarootdir=${prefix}/share
+pkgdatadir=${datarootdir}/wayland
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: wayland-egl
+Description: wayland-egl library
+Version: 1.11.0
+Libs: -L${libdir} -lwayland-egl
+Cflags: -I${includedir}
