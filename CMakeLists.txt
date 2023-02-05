@@ -31,6 +31,6 @@ install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include
         FILES_MATCHING PATTERN "*.h")
 
-install(DIRECTORY ${CMAKE_SOURCE_DIR}/share/pkgconfig
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/share/pkgconfig/
         DESTINATION share/pkgconfig
         FILES_MATCHING PATTERN "*.pc")
