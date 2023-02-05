@@ -21,7 +21,11 @@ add_library(wayland-egl SHARED src/dummy.c)
 set_target_properties(wayland-egl PROPERTIES VERSION 1.10.0 SOVERSION 1)
 target_link_options(wayland-egl PRIVATE ${CMAKE_SOURCE_DIR}/src/wayland-egl.lds)
 
-install(TARGETS EGL GLESv1_CM GLESv2 wayland-egl DESTINATION lib)
+add_library(wayland-webos-client SHARED src/dummy.c)
+set_target_properties(wayland-webos-client PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(wayland-webos-client PRIVATE ${CMAKE_SOURCE_DIR}/src/wayland-webos-client.lds)
+
+install(TARGETS EGL GLESv1_CM GLESv2 wayland-egl wayland-webos-client DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include
