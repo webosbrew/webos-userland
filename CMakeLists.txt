@@ -21,7 +21,11 @@ add_library(wayland-egl SHARED src/dummy.c)
 set_target_properties(wayland-egl PROPERTIES VERSION 1.10.0 SOVERSION 1)
 target_link_options(wayland-egl PRIVATE ${CMAKE_SOURCE_DIR}/src/wayland-egl.lds)
 
-install(TARGETS EGL GLESv1_CM GLESv2 wayland-egl DESTINATION lib)
+add_library(NDL_directmedia SHARED src/dummy.c)
+set_target_properties(NDL_directmedia PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(NDL_directmedia PRIVATE ${CMAKE_SOURCE_DIR}/src/NDL_directmedia.lds)
+
+install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia wayland-egl DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include
