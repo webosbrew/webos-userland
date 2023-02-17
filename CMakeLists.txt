@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(webos_userland C)
+project(webos_userland LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)
 
@@ -25,11 +25,17 @@ add_library(NDL_directmedia SHARED src/dummy.c)
 set_target_properties(NDL_directmedia PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(NDL_directmedia PRIVATE ${CMAKE_SOURCE_DIR}/src/NDL_directmedia.lds)
 
-install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia wayland-egl DESTINATION lib)
+add_library(playerAPIs SHARED src/dummy.c)
+set_target_properties(playerAPIs PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(playerAPIs PRIVATE ${CMAKE_SOURCE_DIR}/src/playerAPIs.lds)
+
+install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include
-        FILES_MATCHING PATTERN "*.h")
+        FILES_MATCHING
+            PATTERN "*.h"
+            PATTERN "*.hpp")
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/share/pkgconfig/
         DESTINATION share/pkgconfig
