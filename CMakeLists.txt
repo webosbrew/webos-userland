@@ -18,7 +18,6 @@ set_target_properties(GLESv2 PROPERTIES VERSION 2.1.0 SOVERSION 2)
 target_link_options(GLESv2 PRIVATE ${CMAKE_SOURCE_DIR}/src/GLESv2.lds)
 
 add_library(wayland-egl SHARED src/dummy.c)
-set_target_properties(wayland-egl PROPERTIES VERSION 1.10.0 SOVERSION 1)
 target_link_options(wayland-egl PRIVATE ${CMAKE_SOURCE_DIR}/src/wayland-egl.lds)
 
 add_library(NDL_directmedia SHARED src/dummy.c)
