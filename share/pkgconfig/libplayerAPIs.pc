@@ -1,7 +1,7 @@
 prefix=/usr
 exec_prefix=${prefix}
 libdir=${prefix}/lib
-includedir=${prefix}/include
+includedir=${prefix}/include/starfish-media-pipeline
 
 Name: libplayerAPIs
 Description: starfish media library
