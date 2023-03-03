@@ -34,7 +34,7 @@ public:
     std::string Feed(const char *payload);
     bool flush();
     bool flush(const char *payload);
-    void getCurrentPlaytime();
+    int64_t getCurrentPlaytime();
     bool getVideoRenderQueueLength(int &length);
     bool getAudioBufferSize(int &total, int &used);
     const char *getMediaID();
@@ -63,6 +63,9 @@ public:
     void setExternalContext(GMainContext *);
     void unsetExternalContext();
 #endif
+private:
+    // Must include big enough storage size. On some system it has 300 bytes, 4KB here should be fairly enough
+    char padding[4096];
 };
 
 enum PF_EVENT_T
