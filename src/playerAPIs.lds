@@ -473,3 +473,6 @@
 "_ZN9ADHandlerC2Ev" = "dummy";
 "_ZN9ADHandlerD1Ev" = "dummy";
 "_ZN9ADHandlerD2Ev" = "dummy";
+
+# webOS 3.x compat
+"_ZN17StarfishMediaAPIs4FeedEPKc" = "dummy";
