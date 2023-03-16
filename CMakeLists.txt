@@ -28,7 +28,11 @@ add_library(playerAPIs SHARED src/dummy.c)
 set_target_properties(playerAPIs PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(playerAPIs PRIVATE ${CMAKE_SOURCE_DIR}/src/playerAPIs.lds)
 
-install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl DESTINATION lib)
+add_library(AcbAPI SHARED src/dummy.c)
+set_target_properties(AcbAPI PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(AcbAPI PRIVATE ${CMAKE_SOURCE_DIR}/src/AcbAPI.lds)
+
+install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include
