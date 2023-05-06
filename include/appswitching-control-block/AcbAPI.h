@@ -10,9 +10,9 @@ typedef void (*AcbAPI_Callback)(long acbId, long taskId, long eventType, long ap
 
 typedef enum AcbAPI_PlayerType
 {
-    PLAYER_TYPE_GROUP = 0L,
-    PLAYER_TYPE_VIDEO,
-    PLAYER_TYPE_VIDEO_UNMUTED_AFTER_PLAYING,
+    PLAYER_TYPE_GROUP = 0,
+    PLAYER_TYPE_VIDEO = 0,
+    PLAYER_TYPE_VIDEO_UNMUTED_AFTER_PLAYING = 1,
     PLAYER_TYPE_AUDIO,
     PLAYER_TYPE_HTML5_AUDIO,
     PLAYER_TYPE_TV,
@@ -28,9 +28,8 @@ typedef enum AcbAPI_PlayerType
 
 typedef enum AcbAPI_SinkType
 {
-    SINK_TYPE_AUTO = 0L,
-    SINK_TYPE_MAIN = 1L,
-    SINK_TYPE_SUB = 2L,
+    SINK_TYPE_MAIN = 0,
+    SINK_TYPE_SUB = 1,
 } AcbAPI_SinkType;
 
 typedef enum AcbAPI_AppState
@@ -44,11 +43,8 @@ typedef enum AcbAPI_PlayState
 {
     PLAYSTATE_UNLOADED = 0,
     PLAYSTATE_LOADED = 1,
-    PLAYSTATE_SEAMLESS_LOADED = 2,
-    PLAYSTATE_PLAYING = 3,
-    PLAYSTATE_PAUSED = 4,
-    PLAYSTATE_AUDIO_ONLY_PLAYING = 5,
-    PLAYSTATE_FROZEN = 6,
+    PLAYSTATE_PLAYING = 2,
+    PLAYSTATE_PAUSED = 3,
 } AcbAPI_PlayState;
 
 long AcbAPI_create(void);
