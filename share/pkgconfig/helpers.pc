@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+datarootdir=${prefix}/share
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/webos-helpers
+
+Name: helpers
+Description: webos helpers
+Version: 2.0.0
+Libs: -L${libdir} -lhelpers
+Cflags: -I${includedir}
