@@ -36,7 +36,11 @@ add_library(helpers SHARED src/dummy.c)
 set_target_properties(helpers PROPERTIES VERSION 2.0.0 SOVERSION 2)
 target_link_options(helpers PRIVATE ${CMAKE_SOURCE_DIR}/src/helpers.lds)
 
-install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers DESTINATION lib)
+add_library(pf-1.0 SHARED src/dummy.c)
+set_target_properties(pf-1.0 PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(pf-1.0 PRIVATE ${CMAKE_SOURCE_DIR}/src/pf-1.0.lds)
+
+install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include
