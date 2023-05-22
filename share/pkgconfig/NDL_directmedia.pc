@@ -4,8 +4,8 @@ datarootdir=${prefix}/share
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include/libndl-media
 
-Name: ndl_directmedia
+Name: NDL_directmedia
 Description: NDL directmedia
 Version: 1.0.0
-Libs: -L${libdir} -lndl_directmedia
+Libs: -L${libdir} -lNDL_directmedia
 Cflags: -I${includedir}
