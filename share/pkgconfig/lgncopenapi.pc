@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+datarootdir=${prefix}/share
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/lgncopenapi
+
+Name: lgncopenapi
+Description: NDK 2.0 Legacy APIs (LGNC Open API)
+Version: 2.3.0
+Libs: -L${libdir} -llgncopenapi
+Cflags: -I${includedir}
