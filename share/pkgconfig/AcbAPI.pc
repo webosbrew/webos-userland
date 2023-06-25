@@ -3,7 +3,7 @@ exec_prefix=${prefix}
 libdir=${prefix}/lib
 includedir=${prefix}/include/appswitching-control-block
 
-Name: libAcbAPI
+Name: AcbAPI
 Description: appswitching-control-block library
 Version: 1.0.0
 
