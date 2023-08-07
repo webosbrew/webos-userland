@@ -3,6 +3,12 @@
 #include <string>
 #include <cstdint>
 
+#include <boost/shared_ptr.hpp>
+
+namespace mediapipeline {
+    class Player;
+}
+
 namespace smp {
     class ProgramInfo;
     class SourceInfo;
@@ -63,6 +69,10 @@ public:
     void setExternalContext(GMainContext *);
     void unsetExternalContext();
 #endif
+private:
+    char unknown[76];
+public:
+    boost::shared_ptr<mediapipeline::Player> player;
 private:
     // Must include big enough storage size. On some system it has 300 bytes, 4KB here should be fairly enough
     char padding[4096];

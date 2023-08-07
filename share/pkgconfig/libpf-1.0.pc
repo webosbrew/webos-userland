@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/starfish-media-pipeline
+
+Name: PlayerFactory
+Description: player factory library
+Version: 1.0.0
+
+Requires:
+Libs: -L${libdir} -lpf-1.0
+Cflags: -I${includedir}/player-factory
