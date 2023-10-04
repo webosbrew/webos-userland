@@ -21,9 +21,9 @@ namespace smp {
         bool isPlatformRealtek(const std::string& platform);
         bool isPlatformSupportSoftwareAudioDecoder(std::string platform);
 
-        void isSupportedAudio(std::string audio, int32_t version, int32_t channel);
-        void isSupportedVideo(std::string video, int32_t width, int32_t height, int32_t frameRate, int64_t bitRate);
-        void isSupportedVideo(std::string video, int32_t width, int32_t height, int32_t frameRate, int64_t bitRate, std::string decodeType);
+        bool isSupportedAudio(std::string audio, int32_t version, int32_t channel);
+        bool isSupportedVideo(std::string video, int32_t width, int32_t height, int32_t frameRate, int64_t bitRate);
+        bool isSupportedVideo(std::string video, int32_t width, int32_t height, int32_t frameRate, int64_t bitRate, std::string decodeType);
 
         bool getMaxVideoResolution(std::string video, int32_t* width, int32_t* height, int32_t* frameRate);
         bool getMaxVideoResolution(std::string video, int32_t* width, int32_t* height, int32_t* frameRate, std::string decodeType);
