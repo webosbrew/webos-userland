@@ -50,17 +50,30 @@ target_link_options(lgncopenapi PRIVATE ${CMAKE_SOURCE_DIR}/src/lgncopenapi.lds)
 add_library(dile_audio_direct SHARED src/dummy.c)
 set_target_properties(dile_audio_direct PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(dile_audio_direct PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_audio_direct.lds)
+# hal_audio_direct needs to be linked to dile_audio_direct, so we provide one without SOVERSION for better compatibility
+add_library(hal_audio_direct SHARED src/dummy.c)
+target_link_libraries(dile_audio_direct PRIVATE hal_audio_direct)
+
+add_library(dile_boardinfo SHARED src/dummy.c)
+target_link_options(dile_boardinfo PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_boardinfo.lds)
 
 add_library(dile_vdec_direct SHARED src/dummy.c)
 set_target_properties(dile_vdec_direct PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(dile_vdec_direct PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_vdec_direct.lds)
+# hal_vdec_direct needs to be linked to dile_vdec_direct, so we provide one without SOVERSION for better compatibility
+add_library(hal_vdec_direct SHARED src/dummy.c)
+target_link_libraries(dile_vdec_direct PRIVATE hal_vdec_direct)
 
 add_library(dile_vt SHARED src/dummy.c)
 set_target_properties(dile_vt PROPERTIES VERSION 0.1.0 SOVERSION 0)
 target_link_options(dile_vt PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_vt.lds)
+# hal_vdec_direct needs to be linked to dile_vt, so we provide one without SOVERSION for better compatibility
+add_library(hal_vt SHARED src/dummy.c)
+target_link_libraries(dile_vt PRIVATE hal_vt dile_boardinfo)
 
 install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi
-        dile_audio_direct dile_vdec_direct dile_vt DESTINATION lib)
+        dile_audio_direct dile_boardinfo dile_vdec_direct dile_vt hal_audio_direct hal_vdec_direct hal_vt
+        DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include

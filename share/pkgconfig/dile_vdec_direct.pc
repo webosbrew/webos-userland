@@ -8,4 +8,5 @@ Name: DILE_VDEC_DIRECT
 Description: VDEC_DIRECT Library
 Version: 1.0.0
 Libs: -L${libdir} -ldile_vdec_direct
+Libs.private: -ldile_vdec_direct
 Cflags: -I${includedir}

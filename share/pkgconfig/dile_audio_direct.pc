@@ -8,4 +8,5 @@ Name: DILE_AUDIO_DIRECT
 Description: AUDIO_DIRECT Library
 Version: 1.0.0
 Libs: -L${libdir} -ldile_audio_direct
+Libs.private: -lhal_audio_direct
 Cflags: -I${includedir}

@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=/usr
+datarootdir=${prefix}/share
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/dile
+
+Name: DILE_BOARDINFO
+Description: Board Information Library
+Version: 1.0.15
+Requires.private:
+Libs: -L${libdir} -ldile_boardinfo
+Cflags: -I${includedir}

@@ -8,4 +8,5 @@ Name: DILE_VT
 Description: Video Texture
 Version: 1.0.0
 Libs: -L${libdir} -ldile_vt
+Libs.private: -lhal_vt -ldile_boardinfo
 Cflags: -I${includedir}
