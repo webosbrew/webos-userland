@@ -79,6 +79,7 @@ target_link_options(media-resource-calculator PRIVATE ${CMAKE_SOURCE_DIR}/src/me
 
 install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi
         dile_audio_direct dile_boardinfo dile_vdec_direct dile_vt hal_audio_direct hal_vdec_direct hal_vt hal_vfe
+        media-resource-calculator
         DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
