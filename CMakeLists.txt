@@ -53,6 +53,8 @@ target_link_options(dile_audio_direct PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_audio
 # hal_audio_direct needs to be linked to dile_audio_direct, so we provide one without SOVERSION for better compatibility
 add_library(hal_audio_direct SHARED src/dummy.c)
 target_link_libraries(dile_audio_direct PRIVATE hal_audio_direct)
+add_library(hal_vfe SHARED src/dummy.c)
+target_link_libraries(hal_audio_direct PRIVATE hal_vfe)
 
 add_library(dile_boardinfo SHARED src/dummy.c)
 target_link_options(dile_boardinfo PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_boardinfo.lds)
