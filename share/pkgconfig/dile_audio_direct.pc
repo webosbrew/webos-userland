@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+datarootdir=${prefix}/share
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/dile
+
+Name: DILE_AUDIO_DIRECT
+Description: AUDIO_DIRECT Library
+Version: 1.0.0
+Libs: -L${libdir} -ldile_audio_direct
+Cflags: -I${includedir}
