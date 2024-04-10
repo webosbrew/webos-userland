@@ -47,7 +47,20 @@ add_library(lgncopenapi SHARED src/dummy.c)
 set_target_properties(lgncopenapi PROPERTIES VERSION 2.4.0 SOVERSION 2)
 target_link_options(lgncopenapi PRIVATE ${CMAKE_SOURCE_DIR}/src/lgncopenapi.lds)
 
-install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi DESTINATION lib)
+add_library(dile_audio_direct SHARED src/dummy.c)
+set_target_properties(dile_audio_direct PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(dile_audio_direct PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_audio_direct.lds)
+
+add_library(dile_vdec_direct SHARED src/dummy.c)
+set_target_properties(dile_vdec_direct PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(dile_vdec_direct PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_vdec_direct.lds)
+
+add_library(dile_vt SHARED src/dummy.c)
+set_target_properties(dile_vt PROPERTIES VERSION 0.1.0 SOVERSION 0)
+target_link_options(dile_vt PRIVATE ${CMAKE_SOURCE_DIR}/src/dile_vt.lds)
+
+install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi
+        dile_audio_direct dile_vdec_direct dile_vt DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
         DESTINATION include

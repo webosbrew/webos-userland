@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+datarootdir=${prefix}/share
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/dile
+
+Name: DILE_VDEC_DIRECT
+Description: VDEC_DIRECT Library
+Version: 1.0.0
+Libs: -L${libdir} -ldile_vdec_direct
+Cflags: -I${includedir}

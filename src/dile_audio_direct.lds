@@ -1,0 +1,10 @@
+"DILE_AUDIO_DIRECT_Close" = "dummy";
+"DILE_AUDIO_DIRECT_Flush" = "dummy";
+"DILE_AUDIO_DIRECT_GetBufferInfo" = "dummy";
+"DILE_AUDIO_DIRECT_Open" = "dummy";
+"DILE_AUDIO_DIRECT_Pause" = "dummy";
+"DILE_AUDIO_DIRECT_Resume" = "dummy";
+"DILE_AUDIO_DIRECT_SetNoDelayParam" = "dummy";
+"DILE_AUDIO_DIRECT_Start" = "dummy";
+"DILE_AUDIO_DIRECT_Stop" = "dummy";
+"DILE_AUDIO_DIRECT_Write" = "dummy";
