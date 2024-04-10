@@ -74,7 +74,7 @@ add_library(hal_vt SHARED src/dummy.c)
 target_link_libraries(dile_vt PRIVATE hal_vt dile_boardinfo)
 
 install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi
-        dile_audio_direct dile_boardinfo dile_vdec_direct dile_vt hal_audio_direct hal_vdec_direct hal_vt
+        dile_audio_direct dile_boardinfo dile_vdec_direct dile_vt hal_audio_direct hal_vdec_direct hal_vt hal_vfe
         DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/
