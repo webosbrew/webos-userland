@@ -128,11 +128,7 @@ int NDL_DirectVideoSetFrameDropThreshold(int threshold);
 /**
  * @return 0 on success, -1 on failure
  */
-int NDL_DirectVideoSetHDRInfo(int displayPrimariesX0, int displayPrimariesY0, int displayPrimariesX1,
-                              int displayPrimariesY1, int displayPrimariesX2, int displayPrimariesY2,
-                              int whitePointX, int whitePointY,
-                              int maxDisplayMasteringLuminance, int minDisplayMasteringLuminance,
-                              int maxContentLightLevel, int maxPicAverageLightLevel);
+int NDL_DirectVideoSetHDRInfo(NDL_DIRECTVIDEO_HDR_INFO_T hdrInfo);
 
 
 

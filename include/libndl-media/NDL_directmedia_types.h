@@ -223,6 +223,10 @@ typedef struct NDL_DIRECTVIDEO_HDR_INFO {
     int minDisplayMasteringLuminance;
     int maxContentLightLevel;
     int maxPicAverageLightLevel;
+    int transferCharacteristics;
+    int colorPrimaries;
+    int matrixCoeffs;
+    unsigned char reserved[32];
 } NDL_DIRECTVIDEO_HDR_INFO_T;
 
 _REPLACE_STRUCT(NDL_DIRECTVIDEO_HDR_INFO_T, NDL_DIRECTVIDEO_HDR_INFO);
