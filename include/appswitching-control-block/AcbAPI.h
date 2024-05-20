@@ -63,6 +63,10 @@ int AcbAPI_setDisplayWindow(long acbId, long x, long y, long w, long h, bool ful
 
 int AcbAPI_setCustomDisplayWindow(long acbId, long in_x, long in_y, long in_w, long in_h, long out_x, long out_y, long out_w, long out_h, bool fullScreen, long *taskId);
 
+int AcbAPI_startMute(long acbId, bool audio, bool video, long *taskId);
+
+int AcbAPI_stopMute(long acbId, bool audio, bool video, long *taskId);
+
 int AcbAPI_finalize(long acbId);
 
 void AcbAPI_destroy(long acbId);
