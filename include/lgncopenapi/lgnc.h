@@ -1,4 +1,9 @@
 /**
+ * @defgroup lgncopenapi lgncopenapi
+ * @brief webOS common helper
+ */
+
+/**
  * @ingroup lgncopenapi
  * @file lgnc.h
  * @brief Includes all LG NetCast API headers

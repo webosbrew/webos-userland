@@ -1,3 +1,13 @@
+/**
+ * @defgroup NDL_directmedia NDL_directmedia
+ * @brief NDL DirectMedia API
+ */
+
+/**
+ * @ingroup NDL_directmedia
+ * @file NDL_directmedia.h
+ * @brief NDL DirectMedia API
+ */
 #ifndef NDL_DIRECTMEDIA_API_VERSION
 # define NDL_DIRECTMEDIA_API_VERSION 1
 #endif
