@@ -51,15 +51,15 @@ long AcbAPI_create(void);
 
 bool AcbAPI_initialize(long acbId, AcbAPI_PlayerType playerType, const char *appId, AcbAPI_Callback callback);
 
-int AcbAPI_setMediaAudioData(long acbId, const char *payload);
-
-int AcbAPI_setMediaVideoData(long acbId, const char *payload);
-
-int AcbAPI_setState(long acbId, AcbAPI_AppState appState, AcbAPI_PlayState playState, long *taskId);
-
 bool AcbAPI_setMediaId(long acbId, const char *connId);
 
 bool AcbAPI_setSinkType(long acbId, AcbAPI_SinkType sinkType);
+
+int AcbAPI_setMediaAudioData(long acbId, const char *payload, long *taskId);
+
+int AcbAPI_setMediaVideoData(long acbId, const char *payload, long *taskId);
+
+int AcbAPI_setState(long acbId, AcbAPI_AppState appState, AcbAPI_PlayState playState, long *taskId);
 
 int AcbAPI_setDisplayWindow(long acbId, long x, long y, long w, long h, bool fullScreen, long *taskId);
 
