@@ -51,6 +51,8 @@ long AcbAPI_create(void);
 
 bool AcbAPI_initialize(long acbId, AcbAPI_PlayerType playerType, const char *appId, AcbAPI_Callback callback);
 
+int AcbAPI_setMediaAudioData(long acbId, const char *payload);
+
 int AcbAPI_setMediaVideoData(long acbId, const char *payload);
 
 int AcbAPI_setState(long acbId, AcbAPI_AppState appState, AcbAPI_PlayState playState, long *taskId);
