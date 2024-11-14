@@ -77,9 +77,13 @@ add_library(media-resource-calculator SHARED src/dummy.c)
 set_target_properties(media-resource-calculator PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(media-resource-calculator PRIVATE ${CMAKE_SOURCE_DIR}/src/media-resource-calculator.lds)
 
+add_library(ndl-directmedia2 SHARED src/dummy.c)
+set_target_properties(ndl-directmedia2 PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(ndl-directmedia2 PRIVATE ${CMAKE_SOURCE_DIR}/src/ndl-directmedia2.lds)
+
 install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi
         dile_audio_direct dile_boardinfo dile_vdec_direct dile_vt hal_audio_direct hal_vdec_direct hal_vt hal_vfe
-        media-resource-calculator
+        media-resource-calculator ndl-directmedia2
         DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/

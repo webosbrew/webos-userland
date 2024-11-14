@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+datarootdir=${prefix}/share
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libndl-directmedia2
+Description: ndl-directmedia2 on webOS 2.x~3.4
+Version: 1.0.0
+Libs: -L${libdir} -lndl-directmedia2
+Cflags: -I${includedir}
