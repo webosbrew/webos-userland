@@ -65,6 +65,7 @@ public:
     bool Stop();
     bool takeSnapshot(const char *message);
     bool Unload();
+    bool changeAudioCodec(const std::string& acodec, const std::string& optInfo);
 #ifdef __G_MAIN_H__
     void setExternalContext(GMainContext *);
     void unsetExternalContext();
