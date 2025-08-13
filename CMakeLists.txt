@@ -43,6 +43,10 @@ add_library(pf-1.0 SHARED src/dummy.c)
 set_target_properties(pf-1.0 PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(pf-1.0 PRIVATE ${CMAKE_SOURCE_DIR}/src/pf-1.0.lds)
 
+add_library(svp_inband_serializer SHARED src/dummy.c)
+set_target_properties(svp_inband_serializer PROPERTIES VERSION 1.0.0 SOVERSION 1)
+target_link_options(svp_inband_serializer PRIVATE ${CMAKE_SOURCE_DIR}/src/svp_inband_serializer.lds)
+
 add_library(lgncopenapi SHARED src/dummy.c)
 set_target_properties(lgncopenapi PROPERTIES VERSION 2.4.0 SOVERSION 2)
 target_link_options(lgncopenapi PRIVATE ${CMAKE_SOURCE_DIR}/src/lgncopenapi.lds)
@@ -83,7 +87,7 @@ target_link_options(ndl-directmedia2 PRIVATE ${CMAKE_SOURCE_DIR}/src/ndl-directm
 
 install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi
         dile_audio_direct dile_boardinfo dile_vdec_direct dile_vt hal_audio_direct hal_vdec_direct hal_vt hal_vfe
-        media-resource-calculator ndl-directmedia2
+        media-resource-calculator ndl-directmedia2 svp_inband_serializer
         DESTINATION lib)
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/

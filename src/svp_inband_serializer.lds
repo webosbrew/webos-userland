@@ -1,0 +1,9 @@
+"_ZN3svp20InbandSerializerImpl11DoSerializeEPSt6vectorIhSaIhEE" = "dummy";
+"_ZN3svp24InbandSerializerImplRealIbE11DoConfigureEPKhjRKSt8functionIFbPSt6vectorIhSaIhEEPvEES9_" = "dummy";
+"_ZN3svp24InbandSerializerImplRealIN3cdm13InputBuffer_2EE11DoConfigureEPKhjRKSt8functionIFbPSt6vectorIhSaIhEEPvEESB_" = "dummy";
+"_ZN3svp24InbandSerializerImplRealIN5wvcdm11InputBufferEE11DoConfigureEPKhjRKSt8functionIFbPSt6vectorIhSaIhEEPvEESB_" = "dummy";
+"_ZN3svp26CreateInbandSerializerImplEPvRKSt9type_info" = "dummy";
+"_ZNSt6vectorIhSaIhEE13_M_assign_auxIPKhEEvT_S5_St20forward_iterator_tag" = "dummy";
+"_ZNSt6vectorIhSaIhEEaSERKS1_" = "dummy";
+"_ZNSt6vectorIN3svp12InbandStream7SegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_" = "dummy";
+"_ZNSt6vectorISt10shared_ptrIN3svp12InbandStreamEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_" = "dummy";
