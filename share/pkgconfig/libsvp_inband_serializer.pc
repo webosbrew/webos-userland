@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/svp
+
+Name: libsvp_inband_serializer
+Description: SVP inband serializer library
+Version: 1.0.0
+
+Requires:
+Libs: -L${libdir} -lsvp_inband_serializer
+Cflags: -I${includedir}
