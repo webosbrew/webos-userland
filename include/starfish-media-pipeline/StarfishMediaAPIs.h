@@ -29,8 +29,8 @@ namespace smp {
         bool getMaxVideoResolution(std::string video, int32_t* width, int32_t* height, int32_t* frameRate, std::string decodeType);
 
         // webOS 26 overloads
-        bool getMaxVideoResolution(const std::string video&, int32_t* width, int32_t* height, int32_t* frameRate);
-        bool getMaxVideoResolution(const std::string video&, int32_t* width, int32_t* height, int32_t* frameRate, const std::string& decodeType);
+        bool getMaxVideoResolution(const std::string& video, int32_t* width, int32_t* height, int32_t* frameRate);
+        bool getMaxVideoResolution(const std::string& video, int32_t* width, int32_t* height, int32_t* frameRate, const std::string& decodeType);
     }
 }
 
