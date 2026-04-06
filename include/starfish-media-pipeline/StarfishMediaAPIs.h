@@ -71,6 +71,7 @@ public:
     bool Unload();
     bool changeAudioCodec(const std::string& acodec, const std::string& optInfo);
     bool SetUpdateInterval(const char *message);
+    void setDialogEnhancement(const char *message);
 #ifdef __G_MAIN_H__
     void setExternalContext(GMainContext *);
     void unsetExternalContext();
