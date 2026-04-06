@@ -56,6 +56,7 @@ public:
   void setContentInfo(MEDIA_CUSTOM_SRC_TYPE_T srcType, MEDIA_CUSTOM_CONTENT_INFO_T* contentInfo);
   bool informationMonitorStartSpi(uint32_t timeInterval);
   bool positionSpi(int64_t* pos);
+  int32_t GetPlayInfo(int64_t* currPosition);
 };
 
 }
