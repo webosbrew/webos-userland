@@ -49,8 +49,8 @@ public:
     bool getAudioBufferSize(int &total, int &used);
     const char *getMediaID();
     const char *getVolume();
-    bool Load(const char *payload, void(callback)(int type, int64_t numValue, const char *strValue));
-    bool Load(const char *payload, void(callback)(int type, int64_t numValue, const char *strValue, void *data), void *data);
+    bool Load(const char *payload, void(callback)(int type, long long numValue, const char *strValue));
+    bool Load(const char *payload, void(callback)(int type, long long numValue, const char *strValue, void *data), void *data);
     bool notifyBackground();
     bool notifyForeground();
     bool Pause();
