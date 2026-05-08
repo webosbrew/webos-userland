@@ -3,33 +3,41 @@ project(webos_userland LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)
 
+option(ENABLE_EGL "Enable EGL/GLES/wayland-egl libraries" ON)
+option(ENABLE_PLAYERAPIS "Enable player APIs libraries" ON)
+option(ENABLE_PLAYERFACTORY "Enable player factory libraries" ON)
+
 include_directories(include)
 
-add_library(EGL SHARED src/dummy.c)
-set_target_properties(EGL PROPERTIES VERSION 1.4.0 SOVERSION 1)
-target_link_options(EGL PRIVATE ${CMAKE_SOURCE_DIR}/src/EGL.lds)
+if (ENABLE_EGL)
+  add_library(EGL SHARED src/dummy.c)
+  set_target_properties(EGL PROPERTIES VERSION 1.4.0 SOVERSION 1)
+  target_link_options(EGL PRIVATE ${CMAKE_SOURCE_DIR}/src/EGL.lds)
 
-add_library(GLESv1_CM SHARED src/dummy.c)
-set_target_properties(GLESv1_CM PROPERTIES VERSION 1.1.0 SOVERSION 1)
-target_link_options(GLESv1_CM PRIVATE ${CMAKE_SOURCE_DIR}/src/GLESv1_CM.lds)
+  add_library(GLESv1_CM SHARED src/dummy.c)
+  set_target_properties(GLESv1_CM PROPERTIES VERSION 1.1.0 SOVERSION 1)
+  target_link_options(GLESv1_CM PRIVATE ${CMAKE_SOURCE_DIR}/src/GLESv1_CM.lds)
 
-add_library(GLESv2 SHARED src/dummy.c)
-set_target_properties(GLESv2 PROPERTIES VERSION 2.1.0 SOVERSION 2)
-target_link_options(GLESv2 PRIVATE ${CMAKE_SOURCE_DIR}/src/GLESv2.lds)
+  add_library(GLESv2 SHARED src/dummy.c)
+  set_target_properties(GLESv2 PROPERTIES VERSION 2.1.0 SOVERSION 2)
+  target_link_options(GLESv2 PRIVATE ${CMAKE_SOURCE_DIR}/src/GLESv2.lds)
 
-add_library(wayland-egl SHARED src/dummy.c)
-if (WAYLAND_EGL_SOVERSION_1)
-  set_target_properties(wayland-egl PROPERTIES VERSION 1.0.0 SOVERSION 1)
+  add_library(wayland-egl SHARED src/dummy.c)
+  if (WAYLAND_EGL_SOVERSION_1)
+    set_target_properties(wayland-egl PROPERTIES VERSION 1.0.0 SOVERSION 1)
+  endif()
+  target_link_options(wayland-egl PRIVATE ${CMAKE_SOURCE_DIR}/src/wayland-egl.lds)
 endif()
-target_link_options(wayland-egl PRIVATE ${CMAKE_SOURCE_DIR}/src/wayland-egl.lds)
 
 add_library(NDL_directmedia SHARED src/dummy.c)
 set_target_properties(NDL_directmedia PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(NDL_directmedia PRIVATE ${CMAKE_SOURCE_DIR}/src/NDL_directmedia.lds)
 
-add_library(playerAPIs SHARED src/dummy.c)
-set_target_properties(playerAPIs PROPERTIES VERSION 1.0.0 SOVERSION 1)
-target_link_options(playerAPIs PRIVATE ${CMAKE_SOURCE_DIR}/src/playerAPIs.lds)
+if (ENABLE_PLAYERAPIS)
+  add_library(playerAPIs SHARED src/dummy.c)
+  set_target_properties(playerAPIs PROPERTIES VERSION 1.0.0 SOVERSION 1)
+  target_link_options(playerAPIs PRIVATE ${CMAKE_SOURCE_DIR}/src/playerAPIs.lds)
+endif()
 
 add_library(AcbAPI SHARED src/dummy.c)
 set_target_properties(AcbAPI PROPERTIES VERSION 1.0.0 SOVERSION 1)
@@ -39,9 +47,11 @@ add_library(helpers SHARED src/dummy.c)
 set_target_properties(helpers PROPERTIES VERSION 2.0.0 SOVERSION 2)
 target_link_options(helpers PRIVATE ${CMAKE_SOURCE_DIR}/src/helpers.lds)
 
-add_library(pf-1.0 SHARED src/dummy.c)
-set_target_properties(pf-1.0 PROPERTIES VERSION 1.0.0 SOVERSION 1)
-target_link_options(pf-1.0 PRIVATE ${CMAKE_SOURCE_DIR}/src/pf-1.0.lds)
+if (ENABLE_PLAYERFACTORY)
+  add_library(pf-1.0 SHARED src/dummy.c)
+  set_target_properties(pf-1.0 PROPERTIES VERSION 1.0.0 SOVERSION 1)
+  target_link_options(pf-1.0 PRIVATE ${CMAKE_SOURCE_DIR}/src/pf-1.0.lds)
+endif()
 
 add_library(lgncopenapi SHARED src/dummy.c)
 set_target_properties(lgncopenapi PROPERTIES VERSION 2.4.0 SOVERSION 2)
@@ -81,7 +91,29 @@ add_library(ndl-directmedia2 SHARED src/dummy.c)
 set_target_properties(ndl-directmedia2 PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_options(ndl-directmedia2 PRIVATE ${CMAKE_SOURCE_DIR}/src/ndl-directmedia2.lds)
 
-install(TARGETS EGL GLESv1_CM GLESv2 NDL_directmedia playerAPIs wayland-egl AcbAPI helpers pf-1.0 lgncopenapi
+if (ENABLE_EGL)
+    install(TARGETS
+        EGL
+        GLESv1_CM
+        GLESv2
+        wayland-egl
+        DESTINATION lib
+    )
+endif()
+
+if (ENABLE_PLAYERAPIS)
+        install(TARGETS
+        playerAPIs
+        DESTINATION lib)
+endif()
+
+if (ENABLE_PLAYERFACTORY)
+        install(TARGETS
+        pf-1.0
+        DESTINATION lib)
+endif()
+
+install(TARGETS NDL_directmedia AcbAPI helpers lgncopenapi
         dile_audio_direct dile_boardinfo dile_vdec_direct dile_vt hal_audio_direct hal_vdec_direct hal_vt hal_vfe
         media-resource-calculator ndl-directmedia2
         DESTINATION lib)
